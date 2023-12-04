@@ -1,4 +1,4 @@
-const validateBody = require("./validation");
+const validation = require("./validation");
 const isValidId = require("./isValidId");
 const validateFavorite = require("./validateFavorite");
 
