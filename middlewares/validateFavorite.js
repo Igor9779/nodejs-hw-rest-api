@@ -1,9 +1,9 @@
 const { BadRequest } = require("http-errors");
 
-const validation = (schema) => {
+const validateFavorite = (schema) => {
   const func = (req, res, next) => {
     if (Object.keys(req.body).length < 1) {
-      throw new BadRequest("missing fields");
+      throw new BadRequest("missing field favorite");
     }
     const { error } = schema.validate(req.body);
     if (error) {
@@ -14,4 +14,4 @@ const validation = (schema) => {
   return func;
 };
 
-module.exports = validation;
+module.exports = validateFavorite;
