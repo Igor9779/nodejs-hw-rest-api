@@ -1,2 +1,9 @@
 const validation = require("./validation");
-module.exports = { validation };
+const isValidId = require("./isValidId");
+const validateFavorite = require("./validateFavorite");
+
+module.exports = {
+  validation,
+  isValidId,
+  validateFavorite,
+};
