@@ -10,9 +10,9 @@ const {
 } = require("../../controllers/contacts");
 
 const {
-  validation,
+  validateBody,
   isValidId,
-  validateFavorite,
+  validateSimpleBody,
   authenticate,
 } = require("../../middlewares");
 
@@ -24,7 +24,7 @@ router.get("/", authenticate, getAll);
 
 router.get("/:contactId", authenticate, isValidId, getById);
 
-router.post("/", authenticate, validation(joiSchema), add);
+router.post("/", authenticate, validateBody(joiSchema), add);
 
 router.delete("/:contactId", authenticate, isValidId, deleteById);
 
@@ -32,7 +32,7 @@ router.put(
   "/:contactId",
   authenticate,
   isValidId,
-  validation(joiSchema),
+  validateBody(joiSchema),
   updateById
 );
 
@@ -40,7 +40,7 @@ router.patch(
   "/:contactId/favorite",
   authenticate,
   isValidId,
-  validateFavorite(updateFavoriteSchemas),
+  validateSimpleBody(updateFavoriteSchemas),
   updateStatusContact
 );
 
