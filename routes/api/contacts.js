@@ -12,7 +12,7 @@ const {
 const {
   validation,
   isValidId,
-  validateFavorite,
+  validateSimpleBody,
   authenticate,
 } = require("../../middlewares");
 
@@ -40,7 +40,7 @@ router.patch(
   "/:contactId/favorite",
   authenticate,
   isValidId,
-  validateFavorite(updateFavoriteSchemas),
+  validateSimpleBody(updateFavoriteSchemas),
   updateStatusContact
 );
 
